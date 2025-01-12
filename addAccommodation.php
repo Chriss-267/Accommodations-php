@@ -3,10 +3,10 @@ require_once 'class/Accommodations.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
-    $location = $_POST['location'];
+    $description = $_POST['description'];
     $price = $_POST['price'];
 
-    $result = Accommodations::addAccommodation($name, $location, $price);
+    $result = Accommodations::addAccommodation($name, $description, $price);
     echo $result;
 }
 ?>
@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" required>
         <br>
-        <label for="location">Ubicación:</label>
-        <input type="text" id="location" name="location" required>
+        <label for="description">Descripcion:</label>
+        <input type="text" id="description" name="description" required>
         <br>
         <label for="price">Precio:</label>
         <input type="number" id="price" name="price" required>

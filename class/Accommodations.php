@@ -17,7 +17,7 @@ class Accommodations {
     }
 
     // Método nuevo para agregar alojamientos (solo administrador)
-    public static function addAccommodation($name, $location, $price) {
+    public static function addAccommodation($name, $description, $price) {
         session_start();
 
         // Verificar si el usuario tiene rol de administrador
@@ -28,9 +28,9 @@ class Accommodations {
 
         $pdo = Conection::connect();
 
-        $query = $pdo->prepare("INSERT INTO Accommodations (name, location, price) VALUES (:name, :location, :price)");
+        $query = $pdo->prepare("INSERT INTO Accommodations (name, description, price) VALUES (:name, :description, :price)");
         $query->bindParam(':name', $name);
-        $query->bindParam(':location', $location);
+        $query->bindParam(':description', $description);
         $query->bindParam(':price', $price);
 
         if ($query->execute()) {
