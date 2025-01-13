@@ -10,10 +10,20 @@
     <nav class="flex justify-between items-center p-4 shadow-md">
         <a href="listAccommodation.php" class="text-red-400 font-bold text-3xl">Accommodations</a>
         <div class="flex gap-4">
-            <a href="register.php" class="font-bold">Sign in</a>
-            <a href="login.php" class="font-bold">Log in</a>
+            <?php
+            session_start();
+            if (isset($_SESSION['id'])) {
+                echo '<span class="font-bold">Hello, ' . htmlspecialchars($_SESSION['username']) . '</span>';
+                if ($_SESSION['role'] === 'admin') {
+                    echo '<a href="addAccommodation.php" class="font-bold text-green-500">Add Accommodation</a>';
+                }
+                echo '<a href="logout.php" class="font-bold text-red-500">Log out</a>';
+            } else {
+                echo '<a href="register.php" class="font-bold">Sign in</a>';
+                echo '<a href="login.php" class="font-bold">Log in</a>';
+            }
+            ?>
         </div>
-        
     </nav>
 </body>
 </html>
