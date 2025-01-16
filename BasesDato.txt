@@ -1,9 +1,0 @@
-Actualizar en la base de datos
-
-ALTER TABLE users ADD COLUMN role ENUM('user', 'admin') DEFAULT 'user';
-
-
-
-Se puede probar creandio unb usuario  administrador directamente desde la base de datos para pruebas
-
-INSERT INTO users (email, password, role) VALUES ('admin@example.com', 'password123', 'admin');
