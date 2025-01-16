@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input class="border border-black w-full p-1 rounded mb-4" placeholder="Email" type="text" name="email" id="email">
 
                 <label class="text-xl block font-bold uppercase text-gray-500" for="password">Contraseña</label>
-                <input class="border border-black w-full p-1 rounded" placeholder="Password" type="text" name="password" id="password">
+                <input class="border border-black w-full p-1 rounded" placeholder="Password" type="password" name="password" id="password">
 
-                <input type="submit" value="Iniciar Sesion" class="bg-blue-500 text-white p-2 rounded-lg mt-4 cursor-pointer hover:bg-blue-600 w-full">
+                <input type="submit" value="Registrarse" class="bg-blue-500 text-white p-2 rounded-lg mt-4 cursor-pointer hover:bg-blue-600 w-full">
             </form>
         </div>
         

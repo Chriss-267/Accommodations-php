@@ -23,13 +23,13 @@ class Authentication{
         $_SESSION['username'] = $username;
 
         // Redirigirnos a una vista
-        header("location: PostUser.php");
+        header("location: userAccount.php");
         exit();
     }
 
     public static function login($email) {
         $pdo = Conection::connect();
-        $query = $pdo->prepare("SELECT id, username, email FROM users WHERE email = :email");
+        $query = $pdo->prepare("SELECT id, username, email, rol FROM users WHERE email = :email");
         $query->bindParam(':email', $email);
         $query->execute();
     
@@ -39,6 +39,7 @@ class Authentication{
             //crear sesiones para el usuario
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+            $_SESSION['rol'] = $user['rol'];
     
             //redirigir a la vista de cuenta de usuario
             header("location: userAccount.php");
@@ -47,19 +48,7 @@ class Authentication{
             echo "Credenciales Incorrectas";
         }
     }
-    public static function logout(){
-        //iniciar sesion
-        session_start();
-
-        //destruir la informacion del usuario
-        session_destroy();
-
-        //destruir las variables de las sesiones
-        session_unset();
-        header("location: index.php");
-        exit;
-    }
-
+    
     //verificando si la sesion existe
     public static function verifySession(){
         session_start();

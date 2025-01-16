@@ -6,7 +6,7 @@ class Conection {
 
     public static function connect(){
         try{
-            $dsn = 'mysql:host=localhost;dbname=alojamientos;charset=utf8';
+            $dsn = 'mysql:host=localhost;dbname=accommodations;charset=utf8';
             $user = 'root';
             $pdo = new PDO($dsn, $user, "");
             return $pdo; 

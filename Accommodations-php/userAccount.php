@@ -3,6 +3,7 @@ require_once "./class/Authentication.php";
 require_once "./class/Accommodations.php";
 Authentication::verifySession();
 
+
 // Manejar la selección de alojamientos
 if(isset($_POST['select_accommodation'])) {
     $accommodationId = $_POST['accommodation_id'];
@@ -66,7 +67,23 @@ function getUserSelections($userId) {
     <?php require_once "./asset/nav.php"; ?>
 
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-8">Mi Cuenta</h1>
+        <div class = "md:flex md:justify-between">
+            <h1 class="text-3xl font-bold mb-8">Mi Cuenta</h1>
+
+                <?php
+                     if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'administrador') {
+                        echo '<button>';
+                        echo '<a href="addAccommodation.php" class="bg-blue-500 text-white py-2 px-2 rounded-lg mt-4 cursor-pointer hover:bg-blue-600 flex items-center">Agregar</a>';
+                        echo '</button>';
+                        } 
+                ?>
+                  
+                  
+                    
+                
+            
+        </div>
+        
         
         <?php if(isset($_GET['success'])): ?>
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
